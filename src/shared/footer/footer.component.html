@@ -1,0 +1,91 @@
+<footer class="bg-slate-900 text-white py-12 md:py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="md:col-span-2">
+        <div class="flex items-center space-x-4 mb-6">
+          <div
+            class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 md:w-8 md:h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold">
+              Iglesia Adventista Trujillo
+            </h3>
+            <p class="text-blue-400 text-base md:text-lg">
+              85 Años de Fe • 1940-2025
+            </p>
+          </div>
+        </div>
+        <p class="text-slate-300 mb-6 text-base md:text-lg">
+          Construyendo comunidad, fortaleciendo la fe y sirviendo con amor desde
+          1940. Celebramos 85 años de bendiciones y miramos hacia el futuro con
+          esperanza.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-lg md:text-xl font-semibold mb-6">Contacto</h4>
+        <div class="space-y-4">
+          <div class="space-y-4">
+            @for (contact of contactInfo; track contact.value) {
+            <div class="flex items-center space-x-3">
+              <svg
+                class="w-5 h-5 text-blue-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  [attr.d]="contact.iconPath"
+                ></path>
+              </svg>
+              <span class="text-slate-300">{{ contact.value }}</span>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-lg md:text-xl font-semibold mb-6">Horarios</h4>
+        <div class="space-y-3 text-slate-300">
+          @for (schedule of schedules; track schedule.day) {
+          <p>
+            <strong>{{ schedule.day }}:</strong> {{ schedule.time }}
+          </p>
+          }
+          <p class="text-blue-400 text-sm mt-4">
+            *Servicios en el Centro Comunitario durante la reconstrucción
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-slate-700 mt-8 md:mt-12 pt-6 md:pt-8 text-center"
+    >
+      <p class="text-slate-400 text-base md:text-lg">
+        © 2024 Iglesia Adventista Trujillo. Todos los derechos reservados.
+      </p>
+      <p class="text-blue-400 font-semibold mt-2">
+        85 Años de Fe y Servicio • #TrujilloAdventista85
+      </p>
+    </div>
+  </div>
+</footer>
