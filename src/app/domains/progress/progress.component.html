@@ -1,0 +1,120 @@
+<section id="progreso" class="py-16 md:py-20 bg-gradient-to-br from-blue-50 to-slate-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6">Galería de Progreso</h2>
+      <p class="text-lg md:text-xl text-slate-600">Testimonio visual de nuestra transformación</p>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="flex flex-col sm:flex-row justify-center mb-8">
+      <div class="grid grid-cols-3 w-full sm:w-auto bg-white rounded-lg p-1 shadow-sm border">
+        @for (tab of tabs; track tab.id) {
+          <button
+            (click)="activeTab = tab.id"
+            class="px-4 py-2 text-sm font-medium rounded-md transition-colors"
+            [class]="{
+              'bg-blue-600': activeTab === tab.id,
+              'text-white': activeTab === tab.id,
+              'text-slate-600': activeTab !== tab.id,
+              'hover:text-blue-600': activeTab !== tab.id
+            }"
+          >
+            {{ tab.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    @switch(activeTab) {
+      @case('galeria') {
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          @for (image of progressImages; track image.url) {
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div class="relative">
+                <img
+                  [src]="image.url"
+                  [alt]="image.title"
+                  class="w-full h-48 md:h-64 object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h3 class="text-lg font-bold">{{ image.title }}</h3>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+      @case('metricas') {
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div class="bg-white border border-blue-200 rounded-lg shadow-lg p-6">
+            <div class="flex items-center text-blue-700 mb-6">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+              <h3 class="text-xl font-bold">Progreso General</h3>
+            </div>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-3">
+                  <span class="font-medium text-slate-700">Construcción Total</span>
+                  <span class="text-blue-600 font-bold">68%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div class="bg-blue-600 h-3 rounded-full" style="width: 68%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-3">
+                  <span class="font-medium text-slate-700">Fondos Recaudados</span>
+                  <span class="text-blue-600 font-bold">$450,000 / $650,000</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div class="bg-blue-600 h-3 rounded-full" style="width: 69%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-green-200 rounded-lg shadow-lg p-6">
+            <div class="flex items-center text-green-700 mb-6">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              <h3 class="text-xl font-bold">Impacto Comunitario</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <div class="text-2xl md:text-3xl font-bold text-green-600">850</div>
+                <div class="text-sm text-slate-600">Miembros Activos</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl md:text-3xl font-bold text-green-600">120</div>
+                <div class="text-sm text-slate-600">Voluntarios</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl md:text-3xl font-bold text-green-600">2,500</div>
+                <div class="text-sm text-slate-600">m² Nuevos</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl md:text-3xl font-bold text-green-600">500</div>
+                <div class="text-sm text-slate-600">Capacidad</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      @case('planos') {
+        <div class="text-center">
+          <img
+            src="/placeholder.svg?height=400&width=800"
+            alt="Planos arquitectónicos"
+            class="rounded-lg shadow-lg mx-auto max-w-full h-auto"
+          />
+          <p class="text-slate-600 mt-4">Diseño arquitectónico del nuevo templo</p>
+        </div>
+      }
+    }
+  </div>
+</section>

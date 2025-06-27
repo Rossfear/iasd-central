@@ -1,0 +1,27 @@
+<section class="py-12 md:py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8 md:mb-12">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Cuenta Regresiva al 85° Aniversario</h2>
+      <p class="text-lg md:text-xl text-blue-100">15 de Marzo, 2025 - Inauguración del Nuevo Templo</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 text-center">
+        <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{{ timeLeft().days }}</div>
+        <div class="text-blue-100 font-medium">Días</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 text-center">
+        <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{{ timeLeft().hours }}</div>
+        <div class="text-blue-100 font-medium">Horas</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 text-center">
+        <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{{ timeLeft().minutes }}</div>
+        <div class="text-blue-100 font-medium">Minutos</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 text-center">
+        <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{{ timeLeft().seconds }}</div>
+        <div class="text-blue-100 font-medium">Segundos</div>
+      </div>
+    </div>
+  </div>
+</section>
