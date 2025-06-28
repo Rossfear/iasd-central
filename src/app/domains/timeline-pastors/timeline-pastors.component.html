@@ -1,121 +1,194 @@
-<div class="max-w-6xl mx-auto">
-  <div class="text-center mb-16">
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Pastores Anteriores</h1>
-    <p class="text-xl text-gray-600">Mensajes especiales de quienes nos han pastoreado con amor</p>
-    <div class="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
-  </div>
 
-  <div class="space-y-12">
-    @for (pastor of formerPastors; track pastor.id) {
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-        <div class="md:flex">
-          <!-- Pastor Photo -->
-          <div class="md:w-1/3 relative">
-            <img
-              [src]="pastor.photo"
-              [alt]="pastor.name"
-              class="w-full h-64 md:h-full object-cover"
-            >
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 text-white">
-              <p class="text-sm font-medium opacity-90">{{ pastor.period }}</p>
+<div class="min-h-screen bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900 text-white">
+  <div class="container mx-auto px-4 py-16">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Pastores Anteriores</h1>
+      <p class="text-xl text-blue-200">Líderes que han guiado nuestra congregación con amor y dedicación</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+
+      <!-- Left Content -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <p class="text-blue-300 text-lg font-medium tracking-wide uppercase">
+            Pastor Emérito
+          </p>
+
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            {{ selectedPastor.pastor.name }}
+          </h2>
+
+          <div class="space-y-4">
+            <div class="flex items-center space-x-4 text-yellow-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-xl font-semibold">{{ selectedPastor.startYear }} - {{ selectedPastor.endYear }}</span>
             </div>
-          </div>
 
-          <!-- Pastor Message -->
-          <div class="md:w-2/3 p-8 md:p-12">
-            <div class="mb-6">
-              <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">{{ pastor.name }}</h2>
-              <p class="text-blue-600 font-semibold text-lg">{{ pastor.period }}</p>
-            </div>
-
-            <div class="prose prose-lg max-w-none">
-              <!-- Opening Quote -->
-              <div class="mb-6">
-                <svg class="w-8 h-8 text-blue-200 mb-2" fill="currentColor" viewBox="0 0 24 24">
+            <div class="space-y-6">
+              <!-- Pastor's Message -->
+              <div class="bg-black/20 rounded-lg p-6 border-l-4 border-yellow-400">
+                <svg class="w-8 h-8 text-yellow-300 mb-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                 </svg>
-              </div>
-
-              <p class="text-gray-700 leading-relaxed text-lg italic mb-6">
-                "{{ getGreetingMessage(pastor) }}"
-              </p>
-
-              <div class="space-y-4 text-gray-600">
-                @for (paragraph of getMessageParagraphs(pastor); track $index) {
-                  <p>{{ paragraph }}</p>
-                }
-              </div>
-
-              <!-- Closing -->
-              <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                <p class="text-blue-800 font-medium italic">
-                  "{{ getClosingMessage(pastor) }}"
-                </p>
-                <p class="text-right mt-3 text-blue-600 font-semibold">
-                  - {{ pastor.name }}
+                <p class="text-lg md:text-xl text-gray-200 leading-relaxed italic">
+                  "{{ selectedPastor.pastor.message }}"
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- Contact or Memory Section -->
-            <div class="mt-8 flex flex-wrap gap-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                {{ pastor.period }}
-              </span>
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-                Pastor Emérito
-              </span>
+        <!-- Navigation Arrows for Mobile -->
+        <div class="flex gap-4 lg:hidden">
+          <button
+            (click)="previousPastor()"
+            [disabled]="currentIndex === 0"
+            class="flex items-center justify-center w-12 h-12 bg-blue-600 hover:bg-blue-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-full transition-colors duration-200"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+
+          <button
+            (click)="nextPastor()"
+            [disabled]="currentIndex === pastorPeriods.length - 1"
+            class="flex items-center justify-center w-12 h-12 bg-blue-600 hover:bg-blue-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-full transition-colors duration-200"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Content - Pastor Photo and Memories -->
+      <div class="space-y-6">
+        <!-- Pastor Photo -->
+        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+          <img
+            [src]="selectedPastor.pastor.photo"
+            [alt]="selectedPastor.pastor.name"
+            class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+            <div class="absolute bottom-6 left-6 right-6">
+              <h3 class="text-white text-2xl font-bold mb-2">{{ selectedPastor.pastor.name }}</h3>
+              <p class="text-blue-200 text-lg">{{ selectedPastor.pastor.period }}</p>
             </div>
           </div>
         </div>
       </div>
-    }
-  </div>
+    </div>
 
-  <!-- Gratitude Section -->
-  <div class="mt-16 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-700 text-white rounded-2xl p-8 md:p-12 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestro Agradecimiento</h2>
-    <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto">
-      A cada pastor que ha servido en nuestra iglesia, les expresamos nuestro más profundo agradecimiento.
-      Su dedicación, amor y liderazgo han sido fundamentales en nuestro crecimiento espiritual.
-    </p>
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Timeline Line -->
+      <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-600 transform -translate-y-1/2"></div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-      <div class="text-center">
-        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-semibold mb-2">Enseñanza</h3>
-        <p class="text-blue-100">Nos guiaron en el estudio de la Palabra</p>
+      <!-- Active Line Segment -->
+      <div
+        class="absolute top-1/2 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 transform -translate-y-1/2 transition-all duration-500 ease-in-out rounded-full"
+        [style.left.%]="getActiveLinePosition().left"
+        [style.width.%]="getActiveLinePosition().width"
+      ></div>
+
+      <!-- Timeline Points -->
+      <div class="relative flex justify-between items-center">
+        @for (period of pastorPeriods; track period.pastor.id; let i = $index) {
+          <button
+            (click)="selectPastor(i)"
+            class="relative group focus:outline-none"
+            [class.z-10]="i === currentIndex"
+          >
+            <!-- Year Circle -->
+            <div
+              class="w-4 h-4 rounded-full border-2 transition-all duration-300 group-hover:scale-125"
+              [class]="i === currentIndex
+                ? 'bg-yellow-400 border-yellow-400 shadow-lg shadow-yellow-400/50'
+                : 'bg-gray-600 border-gray-500 group-hover:bg-blue-500 group-hover:border-blue-400'"
+            ></div>
+
+            <!-- Year Label -->
+            <div
+              class="absolute top-8 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-center"
+              [class]="i === currentIndex
+                ? 'text-yellow-400 font-bold text-lg'
+                : 'text-gray-400 group-hover:text-blue-300 text-sm md:text-base'"
+            >
+              <div>{{ period.startYear }}</div>
+              <div class="text-xs opacity-75">{{ period.endYear }}</div>
+            </div>
+
+            <!-- Tooltip on Hover -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+              {{ period.pastor.name }}
+              <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+            </div>
+          </button>
+        }
       </div>
+    </div>
 
-      <div class="text-center">
-        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-          </svg>
+    <!-- Progress Indicator -->
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center space-x-2 bg-black/20 rounded-full px-6 py-3">
+        <span class="text-blue-300 text-sm">{{ currentIndex + 1 }} de {{ pastorPeriods.length }}</span>
+        <div class="flex space-x-1">
+          @for (period of pastorPeriods; track period.pastor.id; let i = $index) {
+            <div
+              class="w-2 h-2 rounded-full transition-all duration-300"
+              [class]="i === currentIndex ? 'bg-yellow-400' : 'bg-gray-600'"
+            ></div>
+          }
         </div>
-        <h3 class="text-lg font-semibold mb-2">Amor Pastoral</h3>
-        <p class="text-blue-100">Cuidaron de cada miembro con dedicación</p>
       </div>
+    </div>
 
-      <div class="text-center">
-        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
+    <!-- Gratitude Section -->
+    <div class="mt-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-8 md:p-12 text-center border border-white/10">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestro Agradecimiento</h2>
+      <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto">
+        A cada pastor que ha servido en nuestra iglesia, les expresamos nuestro más profundo agradecimiento.
+        Su dedicación, amor y liderazgo han sido fundamentales en nuestro crecimiento espiritual.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Enseñanza</h3>
+          <p class="text-blue-100">Nos guiaron en el estudio de la Palabra</p>
         </div>
-        <h3 class="text-lg font-semibold mb-2">Liderazgo</h3>
-        <p class="text-blue-100">Nos inspiraron a crecer en la fe</p>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Amor Pastoral</h3>
+          <p class="text-blue-100">Cuidaron de cada miembro con dedicación</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Liderazgo</h3>
+          <p class="text-blue-100">Nos inspiraron a crecer en la fe</p>
+        </div>
       </div>
     </div>
   </div>

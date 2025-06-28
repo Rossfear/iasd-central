@@ -42,3 +42,18 @@ export interface Memory {
   date: string
   category: "construction" | "celebration" | "community" | "worship"
 }
+
+export interface PastorPeriod {
+  startYear: number
+  endYear: number
+  pastor: Pastor
+  achievements: string[]
+  specialMemories: string[]
+}
+
+export interface TimelineEvent {
+  year: number;
+  title: string;
+  description: string;
+  image: string;
+}

@@ -1,4 +1,4 @@
-<section id="historia" class="py-16 md:py-20 bg-white">
+<!-- <section id="historia" class="py-16 md:py-20 bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12 md:mb-16">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6">85 Años de Historia</h2>
@@ -51,3 +51,75 @@
     </div>
   </div>
 </section>
+ -->
+
+
+ <div class="min-h-screen bg-slate-800 text-white">
+  <div class="container mx-auto px-4 py-8 lg:py-16">
+    <!-- Content Section -->
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16">
+      <!-- Text Content -->
+      <div class="space-y-6">
+        <h2 class="text-lg lg:text-xl text-slate-300 font-light">
+          {{ selectedEvent().title }}
+        </h2>
+        <div class="text-6xl lg:text-8xl font-light text-white">
+          {{ selectedEvent().year }}
+        </div>
+        <p class="text-lg lg:text-xl text-slate-300 leading-relaxed max-w-lg">
+          {{ selectedEvent().description }}
+        </p>
+      </div>
+
+      <!-- Image Content -->
+      <div class="relative">
+        <div class="aspect-video lg:aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
+          <img
+            [src]="selectedEvent().image"
+            [alt]="selectedEvent().title"
+            class="w-full h-full object-cover transition-all duration-700 ease-in-out"
+            [class.opacity-0]="isTransitioning()"
+            [class.opacity-100]="!isTransitioning()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Navigation -->
+    <div class="relative">
+      <!-- Timeline Line -->
+      <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-600 transform -translate-y-1/2"></div>
+
+      <!-- Timeline Points -->
+      <div class="flex justify-between items-center relative">
+        @for (event of timelineEvents; track event.year) {
+          <button
+            (click)="selectYear(event.year)"
+            class="group relative flex flex-col items-center transition-all duration-300 ease-in-out hover:scale-110"
+            [class.scale-110]="selectedYear() === event.year"
+          >
+            <!-- Year Label -->
+            <div class="mb-4 text-sm lg:text-base font-medium transition-colors duration-300"
+                 [class.text-orange-400]="selectedYear() === event.year"
+                 [class.text-slate-400]="selectedYear() !== event.year">
+              {{ event.year }}
+            </div>
+
+            <!-- Timeline Dot -->
+            <div class="w-4 h-4 rounded-full border-2 transition-all duration-300 ease-in-out relative z-10"
+                 [class.bg-orange-400]="selectedYear() === event.year"
+                 [class.border-orange-400]="selectedYear() === event.year"
+                 [class.bg-slate-800]="selectedYear() !== event.year"
+                 [class.border-slate-400]="selectedYear() !== event.year">
+            </div>
+
+            <!-- Active Line Segment -->
+            @if (selectedYear() === event.year) {
+              <div class="absolute top-1/2 left-1/2 w-16 lg:w-24 h-1 bg-orange-400 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out"></div>
+            }
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</div>

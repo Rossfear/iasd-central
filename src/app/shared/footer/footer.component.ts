@@ -19,15 +19,14 @@ export class FooterComponent {
       iconPath: "M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
     },
     {
-      value: "Av. España 1234, Trujillo",
+      value: "Jr. Independencia 871, Trujillo",
       iconPath:
         "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
     },
   ]
 
   schedules = [
-    { day: "Sábados", time: "9:00 AM - 12:00 PM" },
-    { day: "Miércoles", time: "7:00 PM - 8:30 PM" },
-    { day: "Domingos", time: "6:00 PM - 7:30 PM" },
+    { day: "Sábados", time: "9:00 AM - 6:30 PM" },
+    { day: "Miércoles", time: "7:00 PM - 8:30 PM" }
   ]
 }
