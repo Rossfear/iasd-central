@@ -1,0 +1,67 @@
+
+
+<div class="max-w-6xl mx-auto">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-800 mb-4">Departamentos y Ministerios</h1>
+    <p class="text-xl text-gray-600">Conoce los diferentes ministerios que sirven en nuestra iglesia</p>
+    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    @for (department of departments; track department.id) {
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <!-- Department Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6">
+          <h2 class="text-2xl font-bold mb-2">{{ department.name }}</h2>
+          <p class="opacity-90">{{ department.description }}</p>
+          <p class="text-sm mt-2 text-yellow-200">
+            <span class="font-semibold">Coordinador:</span> {{ department.coordinator }}
+          </p>
+        </div>
+
+        <!-- Photo Gallery -->
+        @if (department.photos.length > 0) {
+          <div class="grid grid-cols-2 gap-2 p-4">
+            @for (photo of department.photos.slice(0, 4); track photo) {
+              <img
+                [src]="photo"
+                [alt]="department.name"
+                class="w-full h-24 object-cover rounded-lg hover:scale-105 transition-transform duration-200 cursor-pointer"
+              >
+            }
+          </div>
+        }
+
+        <!-- Activities -->
+        <div class="p-6">
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Actividades Principales</h3>
+          <div class="space-y-3">
+            @for (activity of department.activities; track activity.id) {
+              <div class="border-l-4 border-blue-200 pl-4 py-2">
+                <h4 class="font-semibold text-gray-800">{{ activity.name }}</h4>
+                <p class="text-sm text-gray-600 mb-1">{{ activity.description }}</p>
+                <div class="flex flex-wrap gap-2 text-xs text-blue-600">
+                  <span class="bg-blue-100 px-2 py-1 rounded">📅 {{ activity.date }}</span>
+                  <span class="bg-blue-100 px-2 py-1 rounded">🕐 {{ activity.time }}</span>
+                  <span class="bg-blue-100 px-2 py-1 rounded">📍 {{ activity.location }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Call to Action -->
+  <div class="mt-16 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-2xl p-8 text-center">
+    <h2 class="text-3xl font-bold mb-4">¿Te gustaría participar?</h2>
+    <p class="text-xl mb-6">
+      Todos los ministerios están abiertos para nuevos voluntarios.
+      ¡Tu talento y dedicación pueden hacer la diferencia!
+    </p>
+    <button class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-200">
+      Contactar Coordinador
+    </button>
+  </div>
+</div>

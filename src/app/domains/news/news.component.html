@@ -1,5 +1,68 @@
 
 
+<div class="space-y-16">
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl shadow-2xl">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        Celebrando Nuestro
+        <span class="text-yellow-300">Aniversario</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 opacity-90">
+        Años de fe, comunidad y bendiciones compartidas
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a routerLink="/programa" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-colors duration-200 shadow-lg">
+          Ver Programa del Día
+        </a>
+        <a routerLink="/recuerdos" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-700 transition-colors duration-200">
+          Galería de Recuerdos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Navigation -->
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for (section of sections; track section.title) {
+      <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+        <div class="h-48 bg-gradient-to-br {{ section.gradient }}"></div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-3">{{ section.title }}</h3>
+          <p class="text-gray-600 mb-4">{{ section.description }}</p>
+          <a
+            [routerLink]="section.link"
+            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
+          >
+            {{ section.buttonText }}
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    }
+  </section>
+
+  <!-- Anniversary Highlights -->
+  <section class="bg-white rounded-2xl shadow-lg p-8">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Momentos Especiales</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (highlight of highlights; track highlight.title) {
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">{{ highlight.icon }}</span>
+          </div>
+          <h4 class="font-bold text-gray-800 mb-2">{{ highlight.title }}</h4>
+          <p class="text-gray-600 text-sm">{{ highlight.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</div>
+
+
+<!--
 <section class="py-16 md:py-20 bg-slate-50">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12 md:mb-16">
@@ -26,3 +89,7 @@
     }
   </div>
 </section>
+ -->
+
+
+

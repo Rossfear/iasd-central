@@ -1,0 +1,122 @@
+<div class="max-w-6xl mx-auto">
+  <div class="text-center mb-16">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Pastores Anteriores</h1>
+    <p class="text-xl text-gray-600">Mensajes especiales de quienes nos han pastoreado con amor</p>
+    <div class="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
+  </div>
+
+  <div class="space-y-12">
+    @for (pastor of formerPastors; track pastor.id) {
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="md:flex">
+          <!-- Pastor Photo -->
+          <div class="md:w-1/3 relative">
+            <img
+              [src]="pastor.photo"
+              [alt]="pastor.name"
+              class="w-full h-64 md:h-full object-cover"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="text-sm font-medium opacity-90">{{ pastor.period }}</p>
+            </div>
+          </div>
+
+          <!-- Pastor Message -->
+          <div class="md:w-2/3 p-8 md:p-12">
+            <div class="mb-6">
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">{{ pastor.name }}</h2>
+              <p class="text-blue-600 font-semibold text-lg">{{ pastor.period }}</p>
+            </div>
+
+            <div class="prose prose-lg max-w-none">
+              <!-- Opening Quote -->
+              <div class="mb-6">
+                <svg class="w-8 h-8 text-blue-200 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                </svg>
+              </div>
+
+              <p class="text-gray-700 leading-relaxed text-lg italic mb-6">
+                "{{ getGreetingMessage(pastor) }}"
+              </p>
+
+              <div class="space-y-4 text-gray-600">
+                @for (paragraph of getMessageParagraphs(pastor); track $index) {
+                  <p>{{ paragraph }}</p>
+                }
+              </div>
+
+              <!-- Closing -->
+              <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                <p class="text-blue-800 font-medium italic">
+                  "{{ getClosingMessage(pastor) }}"
+                </p>
+                <p class="text-right mt-3 text-blue-600 font-semibold">
+                  - {{ pastor.name }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Contact or Memory Section -->
+            <div class="mt-8 flex flex-wrap gap-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                {{ pastor.period }}
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+                Pastor Emérito
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Gratitude Section -->
+  <div class="mt-16 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-700 text-white rounded-2xl p-8 md:p-12 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestro Agradecimiento</h2>
+    <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto">
+      A cada pastor que ha servido en nuestra iglesia, les expresamos nuestro más profundo agradecimiento.
+      Su dedicación, amor y liderazgo han sido fundamentales en nuestro crecimiento espiritual.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Enseñanza</h3>
+        <p class="text-blue-100">Nos guiaron en el estudio de la Palabra</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Amor Pastoral</h3>
+        <p class="text-blue-100">Cuidaron de cada miembro con dedicación</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Liderazgo</h3>
+        <p class="text-blue-100">Nos inspiraron a crecer en la fe</p>
+      </div>
+    </div>
+  </div>
+</div>
