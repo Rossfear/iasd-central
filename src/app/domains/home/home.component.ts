@@ -11,11 +11,13 @@ import { PastorGreetingComponent } from "../pastor-greeting/pastor-greeting.comp
 import { DepartamentsComponent } from "../departaments/departaments.component";
 import { TimelinePastorsComponent } from "../timeline-pastors/timeline-pastors.component";
 import { ProgramComponent } from "../program/program.component";
+import { ReavivadosComponent } from "../reavivados/reavivados.component";
+import { TimelineVerticalComponent } from "../timeline-vertical/timeline-vertical.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CountdownComponent, HeroComponent, HistoryComponent, TestimonyComponent, ProgressComponent, ColaborationComponent, SocialNetworkComponent, NewsComponent, PastorGreetingComponent, DepartamentsComponent, TimelinePastorsComponent, ProgramComponent],
+  imports: [CountdownComponent, HeroComponent, HistoryComponent, TestimonyComponent, ProgressComponent, ColaborationComponent, SocialNetworkComponent, NewsComponent, PastorGreetingComponent, DepartamentsComponent, TimelinePastorsComponent, ProgramComponent, ReavivadosComponent, TimelineVerticalComponent],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

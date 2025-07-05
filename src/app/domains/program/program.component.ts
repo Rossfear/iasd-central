@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ChruchDataService } from '../../core/services/chruch-data.service';
 import { ProgramEvent } from '../../shared/interfaces/chruch.interfaces';
 
@@ -60,5 +60,31 @@ export class ProgramComponent {
       special: "Especial",
     }
     return labels[type] || "Evento"
+  }
+
+  /* actually */
+
+  currentIndex = signal(0);
+  programImages = signal([
+    {
+      url: 'assets/program/flyer-dia-central.jpg',
+      alt: 'Program Image 1'
+    },
+    {
+      url: 'assets/program/TORNEO ANIVERSARIO.png',
+      alt: 'Program Image 2'
+    }
+  ]);
+
+  prevSlide() {
+    this.currentIndex.set((this.currentIndex() - 1 + this.programImages().length) % this.programImages().length);
+  }
+
+  nextSlide() {
+    this.currentIndex.set((this.currentIndex() + 1) % this.programImages().length);
+  }
+
+  goToSlide(index: number) {
+    this.currentIndex.set(index);
   }
 }

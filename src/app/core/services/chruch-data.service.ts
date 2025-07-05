@@ -9,9 +9,9 @@ export class ChruchDataService {
   getCurrentPastor(): Pastor {
     return {
       id: "1",
-      name: "Pastor Juan Carlos Mendoza",
-      photo: "/placeholder.svg?height=400&width=300",
-      period: "2020 - Presente",
+      name: "Pr. Ronald León Aponte",
+      photo: "assets/pastor/pastor-black.png",
+      period: "2021 - Presente",
       message: "Mensaje especial del pastor para el aniversario...",
       isCurrentPastor: true,
     }
@@ -52,120 +52,215 @@ export class ChruchDataService {
         id: "1",
         name: "Escuela Sabática",
         description: "Estudio sistemático de la Biblia para todas las edades",
-        coordinator: "María González",
-        photos: [
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-        ],
+        coordinator: "Margarita Urquiza",
+        photos: [],
         activities: [
           {
             id: "1",
-            name: "Clases de Adultos",
+            name: "ES Adultos y Jóvenes",
             description: "Estudio profundo de las lecciones bíblicas",
             date: "Sábados",
             time: "9:00 AM",
-            location: "Aula Principal",
+            location: "Auditorio",
           },
           {
             id: "2",
-            name: "Escuela de Niños",
+            name: "ES Juveniles y Niños",
             description: "Enseñanza bíblica adaptada para niños",
             date: "Sábados",
             time: "9:00 AM",
-            location: "Aula Infantil",
+            location: "Aulas",
           },
         ],
       },
       {
         id: "2",
-        name: "Jóvenes Adventistas",
+        name: "Ministerio Joven",
         description: "Ministerio dedicado al crecimiento espiritual de los jóvenes",
-        coordinator: "David Morales",
+        coordinator: "Carlos Rodriguez Lázaro",
         photos: [
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
+          "assets/departments/dpto-ja.jpg",
+          "assets/departments/dic.ja.jpg",
         ],
         activities: [
           {
             id: "3",
-            name: "Reunión de Jóvenes",
-            description: "Encuentro semanal de estudio y compañerismo",
-            date: "Viernes",
-            time: "7:00 PM",
-            location: "Salón de Jóvenes",
+            name: "Culto Joven",
+            description: "Culto especial para jóvenes",
+            date: "Sábados",
+            time: "5:00 PM",
+            location: "Templo",
           },
           {
             id: "4",
             name: "Actividades Misioneras",
-            description: "Proyectos de servicio a la comunidad",
-            date: "Domingos",
-            time: "2:00 PM",
-            location: "Comunidad",
+            description: "Deporte de confraternidad y actividades misioneras",
+            date: "Sábados",
+            time: "8:00 PM",
+            location: "Patio de la iglesia",
           },
         ],
       },
       {
         id: "3",
-        name: "Ministerio de la Mujer",
-        description: "Fortaleciendo el liderazgo femenino en la iglesia",
-        coordinator: "Ana Patricia López",
+        name: "Ministerio de Adolescentes",
+        description: "Ministerio dedicado al crecimiento espiritual de los adolescentes",
+        coordinator: "Nora León",
         photos: [
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
+          "assets/departments/min-adolescente.jpg",
         ],
         activities: [
           {
-            id: "5",
-            name: "Círculo de Oración",
-            description: "Tiempo especial de intercesión y oración",
-            date: "Miércoles",
-            time: "6:00 PM",
-            location: "Santuario",
-          },
-          {
-            id: "6",
-            name: "Talleres de Capacitación",
-            description: "Desarrollo de habilidades y liderazgo",
-            date: "Primer sábado del mes",
-            time: "3:00 PM",
-            location: "Aula de Capacitación",
-          },
+            id: "3",
+            name: "Culto Joven",
+            description: "Culto especial para jóvenes",
+            date: "Sábados",
+            time: "5:00 PM",
+            location: "Templo",
+          }
         ],
       },
       {
         id: "4",
+        name: "Ministerio de la Mujer",
+        description: "Fortaleciendo el liderazgo femenino en la iglesia",
+        coordinator: "Karla Ortiz",
+        photos: [
+          "assets/departments/mm-oracion.jpg",
+          "assets/departments/mm-hospital.jpg",
+        ],
+        activities: [
+          {
+            id: "5",
+            name: "Noche de Poder",
+            description: "Tiempo especial de intercesión y oración",
+            date: "Miércoles",
+            time: "8:00 PM",
+            location: "Patio de la iglesia",
+          }
+        ],
+      },
+      {
+        id: "5",
         name: "Ministerio de Música",
         description: "Alabanza y adoración a través de la música",
-        coordinator: "José Luis Ramírez",
+        coordinator: "Laura León Lunavictoria",
         photos: [
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
-          "/placeholder.svg?height=200&width=300",
         ],
         activities: [
           {
             id: "7",
             name: "Ensayo del Coro",
-            description: "Preparación musical para los servicios",
+            description: "Preparación musical para los cultos",
             date: "Jueves",
             time: "7:00 PM",
-            location: "Santuario",
-          },
+            location: "Aulas",
+          }
+        ],
+      },
+      // crear departamento de tesoreria
+      {
+        id: "6",
+        name: "Departamento de Tesoreria",
+        description: "Gestión de los fondos de la iglesia",
+        coordinator: "Elisa León Aponte",
+        photos: [
+          "assets/departments/min-tesoreria.jpg",
+        ],
+        activities: [
           {
             id: "8",
-            name: "Grupo de Instrumentos",
-            description: "Práctica instrumental para acompañamiento",
-            date: "Martes",
-            time: "7:30 PM",
-            location: "Aula de Música",
-          },
+            name: "Reunión de Tesoreria",
+            description: "Tiempo especial de intercesión y oración",
+            date: "Sábados",
+            time: "8:00 PM",
+            location: "Iglesia",
+          }
+        ],
+      },
+      // crear departamento de diáconos
+      {
+        id: "7",
+        name: "Departamento de Diáconos",
+        description: "Compromiso con la hermandad",
+        coordinator: "Juan Guarniz",
+        photos: [
+          "assets/departments/diaconos.jpg",
+        ],
+        activities: [
+          {
+            id: "9",
+            name: "Actividades de Diáconos",
+            description: "Apoyo en actividades de la Iglesia",
+            date: "Sábados",
+            time: "8:00 AM - 6:30 PM",
+            location: "Iglesia",
+          }
+        ],
+      },
+      // crear departamento de salud y temperancia
+      {
+        id: "8",
+        name: "Departamento de Salud y Temperancia",
+        description: "Promover la salud y bienestar de la feligresia segun nuestros principios bíblicos",
+        coordinator: "Flor Otiniano Sandoval",
+        photos: [
+          "assets/departments/salud-temp.jpg",
+          "assets/departments/salud-temperancia.jpg",
+          "assets/departments/temperancia.jpg",
+        ],
+        activities: [
+          {
+            id: "10",
+            name: "Charlas de Salud",
+            description: "Eventos sobre salud y bienestar para la feligresia",
+            date: "Dias Especificos",
+            time: "5:00 PM",
+            location: "Iglesia",
+          }
+        ],
+      },
+      // crear departamento de conquistadores Las Pléyades
+      {
+        id: "9",
+        name: "Departamento de Conquistadores 'Las Pléyades'",
+        description: "Formacion desde pequeños hasta la instruccion de maestros, una vez Pléyades siempre Pléyades",
+        coordinator: "Ivan Aguilar Reyes",
+        photos: [
+          "assets/departments/las-pleyades.jpg",
+          "assets/departments/conquist.jpg",
+          "assets/departments/conquis.jpg",
+        ],
+        activities: [
+          {
+            id: "11",
+            name: "Clases del Club",
+            description: "Clases de segun Especialidad",
+            date: "Domingos",
+            time: "8:00 AM - 12:30 PM",
+            location: "Patio de la iglesia",
+          }
+        ],
+      },
+      // crear ministerio de secretaria
+      {
+        id: "10",
+        name: "Departamento de Secretaria",
+        description: "Organización que apoya a todos los ministerios y departamentos de la iglesia",
+        coordinator: "Maria Moreno Zelada",
+        photos: [
+          "assets/departments/secretaria.jpg",
+          "assets/departments/seretaria.jpg",
+        ],
+        activities: [
+          {
+            id: "12",
+            name: "Reunión de Secretaria",
+            description: "Tiempo especial de organización y oración",
+            date: "Sábados",
+            time: "7:00 PM",
+            location: "Iglesia",
+          }
         ],
       },
     ]

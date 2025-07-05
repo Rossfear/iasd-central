@@ -18,18 +18,15 @@ export class PastorGreetingComponent implements OnInit {
   }
 
   getGreetingIntro(): string {
-    return "Queridos hermanos y amigos, es con gran gozo que celebramos este aniversario especial de nuestra iglesia."
+    return "82 ANIVERSARIO DE LA IGLESIA CENTRAL DE TRUJILLO “EL CIELO NOS ESPERA"
   }
 
   getMessageParagraphs(): string[] {
     return [
-      "Durante estos años, hemos sido testigos de las maravillosas bendiciones de Dios sobre nuestra congregación. Hemos crecido no solo en número, sino también en fe, en amor fraternal y en nuestro compromiso con la misión que Cristo nos ha encomendado.",
-
-      "Este aniversario es una oportunidad para reflexionar sobre el camino recorrido, agradecer a Dios por Su fidelidad constante, y renovar nuestro compromiso de ser Sus fieles siervos en esta comunidad.",
-
-      "Quiero expresar mi profunda gratitud a cada miembro de esta iglesia por su dedicación, su servicio desinteresado y su apoyo constante. Juntos hemos construido más que un edificio; hemos construido una familia espiritual unida por el amor de Cristo.",
-
-      "Mirando hacia el futuro, oro para que Dios continúe guiando nuestros pasos, que sigamos siendo instrumentos de Su gracia, y que muchas más personas puedan encontrar en nuestra iglesia un hogar espiritual donde experimentar el amor transformador de Jesús.",
-    ]
+      "Queridos hermanos de nuestra iglesia Adventista del Séptimo Día Central de Trujillo, reciban el saludo cordial de la familia pastoral León Castillo, por el Octogésimo Segundo Aniversario como iglesia militante en la misión y en la fe, en la espera de Cielos Nuevos y Tierra Nueva.",
+      "Estamos muy agradecidos a nuestro Dios por concedernos sus cuidados y sus grandes bendiciones en estos 82 años de vida congregacional. En toda esta travesía hemos sentido al Espíritu Santo ayudándonos a alcanzar nuestros desafíos evangelísticos, en el cumplimiento de la Misión; pero también hemos visto la mano fiel y misericordiosa de Dios proveyendo para nuestras familias y para nuestra iglesia.",
+      "Como iglesia, hoy, tenemos un gran desafío en marcha, la construcción de nuestro nuevo templo; este año iniciaremos <strong> la obra de construcción. Por eso mis queridos hermanos, este 82 aniversario es una oportunidad para dar las gracias a Dios, reafirmar nuestro pacto fidelidad y unirnos al proyecto de la construcción de nuestro templo.</strong>",
+      "Fijemos hoy nuestros ojos en Cristo, vivamos la palabra del Señor, prediquemos y oremos; es el momento de alistarnos porque Jesús pronto vendrá a llevarnos; “El Cielo Nos Espera”",
+    ];
   }
 }

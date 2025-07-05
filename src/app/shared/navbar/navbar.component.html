@@ -13,7 +13,7 @@
 
           <!-- Mobile menu button -->
           <button
-            class="md:hidden p-2 rounded-md text-slate-700 hover:text-blue-600 hover:bg-blue-50"
+            class="md:hidden p-2 rounded-md text-slate-700 hover:text-blue-600 hover:bg-blue-500"
             (click)="toggleMobileMenu()"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -24,17 +24,17 @@
           </button>
 
           <!-- Desktop Navigation -->
-          <nav class="hidden md:flex space-x-8">
-            <a href="#pastor" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">
+          <nav class="hidden md:flex space-x-8 ">
+            <a href="#pastor" class=" py-4 px-4 text-slate-700 hover:text-white hover:bg-blue-500 transition-colors font-medium">
               Pastor
             </a>
-            <a href="#historia" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">
+            <a href="#historia" class=" py-4 px-4 text-slate-700 hover:text-white hover:bg-blue-500 transition-colors font-medium">
               Historia
             </a>
-            <a href="#deptyminst" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">
+            <a href="#deptyminst" class=" py-4 px-4 text-slate-700 hover:text-white hover:bg-blue-500 transition-colors font-medium">
               Depto y Minst.
             </a>
-            <a href="#programa" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">
+            <a href="#programa" class=" py-4 px-4 text-slate-700 hover:text-white hover:bg-blue-500 transition-colors font-medium">
               Programa
             </a>
           </nav>
@@ -47,16 +47,16 @@
           [class.hidden]="!mobileMenuOpen"
         >
           <div class="flex flex-col space-y-3 pt-4">
-            <a href="#pastor" class="text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
+            <a href="#pastor" class="py-4 px-4 text-slate-700 hover:text-blue-600 transition-colors font-medium">
               Pastor
             </a>
-            <a href="#historia" class="text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
+            <a href="#historia" class="py-4 px-4 text-slate-700 hover:text-blue-600 transition-colors font-medium">
               Historia
             </a>
-            <a href="#deptyminst" class="text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
+            <a href="#deptyminst" class="py-4 px-4 text-slate-700 hover:text-blue-600 transition-colors font-medium">
               Depto y Minst.
             </a>
-            <a href="#programa" class="text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
+            <a href="#programa" class="py-4 px-4 text-slate-700 hover:text-blue-600 transition-colors font-medium">
               Programa
             </a>
           </div>

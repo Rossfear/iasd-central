@@ -1,17 +1,17 @@
-<div class="max-w-4xl mx-auto">
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Saludo del Pastor</h1>
+<div class="max-w-4xl mx-auto py-16 scroll-py-16">
+  <!-- <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-800 mb-4">Agradecimiento</h1>
     <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-  </div>
+  </div> -->
 
   @if (currentPastor) {
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
       <div class="md:flex">
-        <div class="md:w-1/3">
+        <div class="md:w-1/3 mx-auto">
           <img
             [src]="currentPastor.photo"
             [alt]="currentPastor.name"
-            class="w-full h-64 md:h-full object-cover"
+            class="w-5/6 h-auto mx-auto pt-5 object-cover"
           >
         </div>
         <div class="md:w-2/3 p-8">
@@ -29,12 +29,13 @@
 
             <div class="mt-8 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-600">
               <p class="font-semibold text-blue-800">
-                "Que Dios continúe bendiciendo abundantemente a nuestra querida iglesia
-                y que sigamos siendo luz en nuestra comunidad."
+                ¡FELIZ 82 ANIVERSARIO “El Cielo Nos Espera”!
+                <br />
+                Dios los bendiga.
               </p>
-              <p class="text-right mt-4 text-blue-600 font-semibold">
+              <!-- <p class="text-right mt-4 text-blue-600 font-semibold">
                 - Pastor {{ currentPastor.name }}
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
@@ -42,13 +43,13 @@
     </div>
 
     <!-- Bible Verse Section -->
-    <div class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8 text-center">
+    <!-- <div class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8 text-center">
       <h3 class="text-2xl font-bold mb-4">Versículo Especial</h3>
       <blockquote class="text-xl italic mb-4">
         "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová,
         pensamientos de paz, y no de mal, para daros el fin que esperáis."
       </blockquote>
       <cite class="text-yellow-300 font-semibold">Jeremías 29:11</cite>
-    </div>
+    </div> -->
   }
 </div>
